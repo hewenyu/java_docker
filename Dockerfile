@@ -1,5 +1,5 @@
-# [Choice] Java version: 11, 15
-ARG VARIANT=11
+# [Choice] Java version: 11, 15, 17
+ARG VARIANT=17
 FROM openjdk:${VARIANT}-jdk-buster
 
 # [Option] Install zsh

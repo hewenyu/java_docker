@@ -40,7 +40,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           build-args: |
-              VARIANT=11
+              VARIANT=17
           push: true
           tags: |
               ${{ steps.meta.outputs.tags }}
