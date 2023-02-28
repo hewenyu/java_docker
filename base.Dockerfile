@@ -42,8 +42,16 @@ RUN arch="$(dpkg --print-architecture)" \
 
 # Copy library scripts to execute
 COPY library-scripts/*.sh library-scripts/*.env /tmp/library-scripts/
-
+#  Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 ARG USERNAME=coder
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
+    && if [ ! -d "/docker-java-home" ]; then ln -s "${JAVA_HOME}" /docker-java-home; fi \
+    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+
+
 # [Option] Install Maven
 ARG INSTALL_MAVEN="false"
 ARG MAVEN_VERSION=""
