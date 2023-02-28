@@ -8,7 +8,7 @@ ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="true"
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-ARG USERNAME=vscode
+ARG USERNAME=coder
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 COPY library-scripts/common-debian.sh /tmp/library-scripts/
