@@ -17,10 +17,10 @@ RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "$
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # [Option] Install Maven
-ARG INSTALL_MAVEN="false"
+ARG INSTALL_MAVEN="true"
 ARG MAVEN_VERSION=""
 # [Option] Install Gradle
-ARG INSTALL_GRADLE="false"
+ARG INSTALL_GRADLE="true"
 ARG GRADLE_VERSION=""
 ENV SDKMAN_DIR="/usr/local/sdkman"
 ENV PATH="${PATH}:${SDKMAN_DIR}/java/current/bin:${SDKMAN_DIR}/maven/current/bin:${SDKMAN_DIR}/gradle/current/bin"
